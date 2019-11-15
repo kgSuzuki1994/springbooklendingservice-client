@@ -12,8 +12,25 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-  name: "BookList"
+  name: "BookList",
+  data() {
+    return {
+      booklists: []
+    };
+  },
+  created: async function() {
+    await this.refresh();
+  },
+  methods: {
+    refresh: async function() {
+      const res = await axios.get("http://localhost:8080/");
+      this.booklists = res.data.booklists;
+      console.info(this.booklists);
+    }
+  }
 };
 </script>
 
