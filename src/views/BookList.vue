@@ -5,7 +5,13 @@
         <div slot="header" class="clearfix">
           <span>書籍一覧</span>
         </div>
-        <div>...</div>
+        <el-table :data="bookLists" style="width: 100%">
+          <el-table-column prop="id" label="書籍ID" width="100" />
+          <el-table-column prop="isbn" label="ISBN-13" width="300" />
+          <el-table-column prop="title" label="書籍名" width="450" />
+          <el-table-column prop="status" label="貸し出し状況" width="150" />
+          <el-table-column prop="person" label="貸出人" width="300" />
+        </el-table>
       </el-card>
     </el-col>
   </el-row>
