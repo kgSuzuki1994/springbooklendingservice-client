@@ -58,13 +58,10 @@ export default {
       bookLists: []
     };
   },
-  created: async function() {
-    await this.refresh();
-  },
+  created: async function() {},
   methods: {
     addBookList: async function() {
       await axios.post("http://localhost:8080/", this.form);
-      await this.refresh();
     }
   }
 };
