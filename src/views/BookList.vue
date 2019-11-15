@@ -18,7 +18,7 @@ export default {
   name: "BookList",
   data() {
     return {
-      booklists: []
+      bookLists: []
     };
   },
   created: async function() {
@@ -27,8 +27,8 @@ export default {
   methods: {
     refresh: async function() {
       const res = await axios.get("http://localhost:8080/");
-      this.booklists = res.data.booklists;
-      console.info(this.booklists);
+      this.bookLists = res.data.bookLists;
+      console.info(this.bookLists);
     }
   }
 };
