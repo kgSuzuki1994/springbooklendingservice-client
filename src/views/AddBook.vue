@@ -2,20 +2,16 @@
   <div id="registration" class="container">
     <h3>新しい書籍を登録</h3>
     <div class="form-group">
-      <el-form ref="form" :model="form" label-width="80px">
-        <el-form-item>
-          <el-form-item label="isbn">
-            <el-input v-model="form.isbn"></el-input>
-          </el-form-item>
+      <el-form ref="form" :model="form" label-width="250px">
+        <el-form-item label="ISBN-13">
+          <el-input v-model="form.isbn"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-form-item label="title">
-            <el-input v-model="form.title"></el-input>
-          </el-form-item>
+        <el-form-item label="書籍のタイトル">
+          <el-input v-model="form.title"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-form-item label="status">
-            <el-select v-model="value" placeholder="Select">
+        <el-form-item label="貸し出し状況">
+          <div style="float: left">
+            <el-select v-model="form.status" placeholder="選択" size="24">
               <el-option
                 v-for="(item, key, index) in status_options"
                 :key="index"
@@ -24,16 +20,13 @@
               >
               </el-option>
             </el-select>
-          </el-form-item>
+          </div>
         </el-form-item>
-        <el-form-item>
-          <el-form-item label="person">
-            <el-input v-model="form.person"></el-input>
-          </el-form-item>
+
+        <el-form-item label="貸出人(レンタル中の場合のみ記載)">
+          <el-input v-model="form.person"></el-input>
         </el-form-item>
-        <el-col :span="8">
-          <el-button type="success" @click="addBookList">追加</el-button>
-        </el-col>
+        <el-button type="success" @click="addBookList">追加</el-button>
       </el-form>
     </div>
   </div>
@@ -50,7 +43,7 @@ export default {
         isbn: undefined,
         title: undefined,
         status: undefined,
-        person: undefined
+        person: " - "
       },
       status_options: [
         {
