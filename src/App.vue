@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
+      <router-link to="/booklist">一覧</router-link> |
       <router-link to="/addbook">書籍の登録</router-link>
     </div>
     <router-view />
