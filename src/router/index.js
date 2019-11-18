@@ -23,7 +23,13 @@ const routes = [
     path: "/booklist",
     name: "booklist",
     component: () =>
-      import(/* webpackChunkName: "currency" */ "../views/BookList.vue")
+      import(/* webpackChunkName: "booklist" */ "../views/BookList.vue")
+  },
+  {
+    path: "/addbook",
+    name: "addbook",
+    component: () =>
+      import(/* webpackChunkName: "addbook" */ "../views/AddBook.vue")
   }
 ];
 
