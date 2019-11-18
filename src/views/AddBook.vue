@@ -17,14 +17,13 @@
                 :key="index"
                 :label="item.label"
                 :value="item.value"
-              >
-              </el-option>
+              ></el-option>
             </el-select>
           </div>
         </el-form-item>
 
-        <el-form-item label="貸出人(レンタル中の場合のみ記載)">
-          <el-input v-model="form.person"></el-input>
+        <el-form-item label="借り主">
+          <el-input v-model="form.person" placeholder="レンタル中の場合のみ記載"></el-input>
         </el-form-item>
         <el-button type="success" @click="addBookList">追加</el-button>
       </el-form>
@@ -43,7 +42,7 @@ export default {
         isbn: undefined,
         title: undefined,
         status: undefined,
-        person: " - "
+        person: undefined
       },
       status_options: [
         {
@@ -61,7 +60,7 @@ export default {
   created: async function() {},
   methods: {
     addBookList: async function() {
-      await axios.post("http://localhost:8080/", this.form);
+      await axios.post("http://localhost:8080/addbook", this.form);
     }
   }
 };
