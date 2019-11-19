@@ -11,6 +11,16 @@
           <el-table-column prop="title" label="書籍名" width="450" />
           <el-table-column prop="status" label="貸し出し状況" width="150" />
           <el-table-column prop="person" label="貸出人" width="300" />
+          <el-table-column prop="operation" label="内容更新" width="200" align="left">
+            <template slot-scope="scope">
+              <router-link
+                @click.native="editBookInfo()"
+                :to="{name: 'editbook', params: {id: scope.row.id}}"
+              >
+                <el-button type="primary" icon="el-icon-edit"></el-button>
+              </router-link>
+            </template>
+          </el-table-column>
         </el-table>
       </el-card>
     </el-col>
@@ -35,6 +45,9 @@ export default {
       const res = await axios.get("http://localhost:8080/");
       this.bookLists = res.data.bookLists;
       console.info(this.bookLists);
+    },
+    editBookInfo() {
+      console.info("GO TO EDIT PAGE");
     }
   }
 };
