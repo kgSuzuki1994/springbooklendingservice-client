@@ -30,6 +30,15 @@ const routes = [
     name: "addbook",
     component: () =>
       import(/* webpackChunkName: "addbook" */ "../views/AddBook.vue")
+  },
+  {
+    path: "/booklist/editbook/:id",
+    name: "editbook",
+    component: () =>
+      import(/* webpackChunkName: "addbook" */ "../views/editbook.vue"),
+    props: route => ({
+      value: Number(route.params.id)
+    })
   }
 ];
 
