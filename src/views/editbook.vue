@@ -76,6 +76,13 @@ export default {
         this.form
       );
 
+      await this.refresh();
+      this.$message({
+        shoClose: true,
+        message: "修正を受け付けました!",
+        type: "success"
+      });
+
       console.log("id: " + this.form);
     }
   }
