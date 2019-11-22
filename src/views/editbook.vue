@@ -24,7 +24,7 @@
         <el-form-item label="借り主">
           <el-input v-model="form.person" placeholder="レンタル中の場合のみ記載"></el-input>
         </el-form-item>
-        <el-button type="success" @click="addBookList">追加</el-button>
+        <el-button type="success" @click="addBookList">変更</el-button>
       </el-form>
     </div>
   </div>
@@ -75,6 +75,13 @@ export default {
         "http://localhost:8080/edit/" + this.$route.params["id"],
         this.form
       );
+
+      await this.refresh();
+      this.$message({
+        showClose: true,
+        message: "修正を受け付けました!",
+        type: "success"
+      });
 
       console.log("id: " + this.form);
     }

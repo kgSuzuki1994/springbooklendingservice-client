@@ -59,8 +59,16 @@ export default {
   },
   created: async function() {},
   methods: {
+    refresh: async function() {},
     addBookList: async function() {
       await axios.post("http://localhost:8080/addbook", this.form);
+
+      await this.refresh();
+      this.$message({
+        showClose: true,
+        message: "書籍の登録を行いました!",
+        type: "success"
+      });
     }
   }
 };
