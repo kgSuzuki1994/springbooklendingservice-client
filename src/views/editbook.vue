@@ -22,10 +22,7 @@
           </div>
         </el-form-item>
         <el-form-item label="借り主">
-          <el-input
-            v-model="form.person"
-            placeholder="レンタル中の場合のみ記載"
-          ></el-input>
+          <el-input v-model="form.person" placeholder="レンタル中の場合のみ記載"></el-input>
         </el-form-item>
         <el-button type="success" @click="addBookList">追加</el-button>
       </el-form>
@@ -74,7 +71,12 @@ export default {
       console.info("id: " + this.$route.params["id"]);
     },
     addBookList: async function() {
-      await axios.post("http://localhost:8080/addbook", this.form);
+      await axios.post(
+        "http://localhost:8080/edit/" + this.$route.params["id"],
+        this.form
+      );
+
+      console.log("id: " + this.form);
     }
   }
 };
