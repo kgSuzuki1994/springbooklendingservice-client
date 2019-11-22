@@ -7,10 +7,10 @@
         </div>
         <el-table :data="bookLists" style="width: 100%">
           <el-table-column prop="id" label="書籍ID" width="100" />
-          <el-table-column prop="isbn" label="ISBN-13" width="300" />
+          <el-table-column prop="isbn" label="ISBN-13" width="150" />
           <el-table-column prop="title" label="書籍名" width="450" />
           <el-table-column prop="status" label="貸し出し状況" width="150" />
-          <el-table-column prop="person" label="貸出人" width="300" />
+          <el-table-column prop="person" label="貸出人" width="250" />
           <el-table-column prop="operation" label="内容更新" width="200" align="left">
             <template slot-scope="scope">
               <router-link
