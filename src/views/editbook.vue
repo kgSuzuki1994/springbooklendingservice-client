@@ -78,7 +78,7 @@ export default {
 
       await this.refresh();
       this.$message({
-        shoClose: true,
+        showClose: true,
         message: "修正を受け付けました!",
         type: "success"
       });
