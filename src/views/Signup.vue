@@ -17,15 +17,32 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Signup",
   data() {
     return {
-      username: "",
-      password: ""
+      username: undefined,
+      password: undefined
     };
   },
-  methods: {}
+  methods: {
+    signUp: async function() {
+      await axios.post(
+        "http://localhost:8080/signup",
+        this.username,
+        this.password
+      );
+
+      await this.refresh();
+      this.$message({
+        showClose: true,
+        message: "登録が完了しました",
+        type: "success"
+      });
+    }
+  }
 };
 </script>
 
