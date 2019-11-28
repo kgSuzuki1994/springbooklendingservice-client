@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Signin",
   data() {
@@ -20,6 +22,22 @@ export default {
       password: ""
     };
   },
-  methods: {}
+  methods: {
+      signIn: async function() {
+          await axios.post(
+              "http://localhost:8080/signin",
+              this.username,
+              this.password
+          )
+          .then(() => this.$router.push('/booklist'))
+          .catch(error => {
+              this.$message({
+                  showClose: true,
+                  message: error,
+                  type: 'error'
+              })
+          })
+      }
+  }
 };
 </script>
