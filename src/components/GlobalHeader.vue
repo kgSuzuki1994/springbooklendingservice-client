@@ -1,6 +1,7 @@
 <template>
   <div class="global-header">
-    <span class="global-header-label">Welcome to Our Library!!</span>
+    <router-link to="/booklist">一覧</router-link> |
+    <router-link to="/addbook">書籍の登録</router-link>
   </div>
 </template>
 
@@ -9,15 +10,3 @@ export default {
   name: "GlobalHeader"
 };
 </script>
-
-<style scoped lang="scss">
-.global-header {
-  background-color: $HEADER_BACKGROUND;
-  height: 6.5vh;
-}
-.global-header-label {
-  color: $HEADER_LABEL;
-  font-weight: bold;
-  line-height: 6.5vh;
-}
-</style>

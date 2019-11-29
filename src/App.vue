@@ -1,13 +1,22 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/booklist">一覧</router-link> |
-      <router-link to="/addbook">書籍の登録</router-link>
-    </div>
-    <router-view />
-  </div>
+  <el-countainer id="app">
+    <el-header id="nav">
+      <global-header />
+    </el-header>
+    <el-main>
+      <router-view />
+    </el-main>
+  </el-countainer>
 </template>
+
+<script>
+import GlobalHeader from "./components/GlobalHeader";
+export default {
+  components: {
+    GlobalHeader
+  }
+};
+</script>
 
 <style lang="scss">
 #app {
