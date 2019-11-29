@@ -8,7 +8,7 @@
       <el-input tye="password" placeholder="Password" v-model="password" />
     </div>
 
-    <el-button @click="SignUp">Register</el-button>
+    <el-button @click="signUp">Register</el-button>
     <p>
       Do you have an account?
       <router-link to="/signin">sign in now!</router-link>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import firebase from "firebase";
 
 export default {
   name: "Signup",
@@ -29,18 +29,25 @@ export default {
   },
   methods: {
     signUp: async function() {
-      await axios.post(
-        "http://localhost:8080/signup",
-        this.username,
-        this.password
-      );
-
-      await this.refresh();
-      this.$message({
-        showClose: true,
-        message: "登録が完了しました",
-        type: "success"
-      });
+      await firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.username, this.password)
+        .then(() => {
+          this.username = undefined;
+          this.password = undefined;
+          this.$message({
+            showClose: true,
+            message: "Register User Success!",
+            type: "success"
+          });
+        })
+        .catch(error => {
+          this.$message({
+            showClose: true,
+            message: error,
+            type: "error"
+          });
+        });
     }
   }
 };
