@@ -23,7 +23,10 @@
         </el-form-item>
 
         <el-form-item label="借り主">
-          <el-input v-model="form.person" placeholder="レンタル中の場合のみ記載"></el-input>
+          <el-input
+            v-model="form.person"
+            placeholder="レンタル中の場合のみ記載"
+          ></el-input>
         </el-form-item>
         <el-button type="success" @click="addBookList">追加</el-button>
       </el-form>
