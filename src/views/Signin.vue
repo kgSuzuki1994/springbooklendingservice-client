@@ -7,6 +7,7 @@
     <div class="input-form-wrapper">
       <el-input type="password" placeholder="Password" v-model="password" />
     </div>
+
     <el-button @click="signIn">Signin</el-button>
     <p>
       You don't have an account?
@@ -16,7 +17,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import firebase from "firebase";
 
 export default {
   name: "Signin",
@@ -28,8 +29,9 @@ export default {
   },
   methods: {
     signIn: async function() {
-      await axios
-        .post("http://localhost:8080/signin", this.username, this.password)
+      await firebase
+        .auth()
+        .signInWithEmailAndPassword(this.username, this.password)
         .then(() => this.$router.push("/booklist"))
         .catch(error => {
           this.$message({
@@ -42,3 +44,33 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+h1,
+h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+.signin {
+  margin-top: 20px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  margin: 10px 0;
+  padding: 10px;
+}
+</style>
