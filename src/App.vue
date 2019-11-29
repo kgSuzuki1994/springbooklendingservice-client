@@ -1,12 +1,12 @@
 <template>
-  <el-countainer id="app">
+  <el-container id="app">
     <el-header id="nav">
       <global-header />
     </el-header>
     <el-main>
       <router-view />
     </el-main>
-  </el-countainer>
+  </el-container>
 </template>
 
 <script>
