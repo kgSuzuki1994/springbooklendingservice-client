@@ -5,7 +5,7 @@
       <el-input type="text" placeholder="Username" v-model="username" />
     </div>
     <div class="input-form-wrapper">
-      <el-input tye="password" placeholder="Password" v-model="password" />
+      <el-input type="password" placeholder="Password" v-model="password" />
     </div>
 
     <el-button @click="signUp">Register</el-button>
